@@ -63,6 +63,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\SearchCommand.cs" />
+    <Compile Include="Converters\PrecipitationConverter.cs" />
     <Compile Include="Helpers\AccuWeatherHelper.cs" />
     <Compile Include="ViewModels\WeatherVM.cs" />
     <Compile Include="Views\WeatherWindow.xaml.cs">
