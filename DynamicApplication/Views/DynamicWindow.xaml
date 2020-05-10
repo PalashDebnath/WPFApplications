@@ -1,0 +1,81 @@
+﻿<Window x:Class="DynamicApplication.Views.DynamicWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:DynamicApplication.ViewModels"
+        xmlns:local="clr-namespace:DynamicApplication.Views"
+        mc:Ignorable="d"
+        Title="Dynamic" Height="600" Width="800" BorderBrush="#FF34343E" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <vm:DynamicVM x:Key="vm"/>
+    </Window.Resources>
+
+    <DockPanel DataContext="{StaticResource vm}">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Add Entity"
+                          Command="{Binding OpenDialogCommand}"
+                          CommandParameter="{Binding Default}"/>
+                <Separator/>
+                <MenuItem Header="Exit"
+                          Command="{Binding ExitCommand}"/>
+            </MenuItem>
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock Text="{Binding Status}"/>
+            </StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Right">
+                <TextBlock Text="{Binding CopyRight}"/>
+            </StatusBarItem>
+        </StatusBar>
+        <ItemsControl ItemsSource="{Binding EntityRecords}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Canvas>
+                        <Grid Canvas.Left="{Binding Entity.xAxis}"
+                              Canvas.Top="{Binding Entity.yAxis}"
+                              Height="100"
+                              Width="100"
+                              MouseLeftButtonUp="GridMouseLeftButtonUp"
+                              MouseLeftButtonDown="GridMouseLeftButtonDown"
+                              MouseMove="GridMouseMove">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0"
+                                        Orientation="Horizontal">
+                                <TextBlock Text="Name: "
+                                           FontSize="14"/>
+                                <TextBlock Text="{Binding Entity.Name}"
+                                           FontSize="14"/>
+                            </StackPanel>
+                            <ListView Grid.Row="1"
+                                      ItemsSource="{Binding EntityAttributes}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Name}"/>
+                                            <TextBlock Text=" : "/>
+                                            <TextBlock Text="{Binding Value}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <Grid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Add Attribute"
+                                              Command="{Binding Source={StaticResource vm}, Path=OpenDialogCommand}"
+                                              CommandParameter="{Binding Entity.Id}"/>
+                                </ContextMenu>
+                            </Grid.ContextMenu>
+                        </Grid>
+                    </Canvas>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </DockPanel>
+</Window>

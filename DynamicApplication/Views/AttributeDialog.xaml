@@ -1,0 +1,32 @@
+﻿<Window x:Class="DynamicApplication.Views.AttributeDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DynamicApplication.Views"
+        mc:Ignorable="d"
+        Title="Add Attribute" Height="180" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Label>Name:</Label>
+            <TextBox Margin="5,0,5,5"
+                     Text="{Binding AttributeName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label>Value:</Label>
+            <TextBox Margin="5,0,5,5"
+                     Text="{Binding AttributeValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Margin="5,5,5,5">
+            <Button Content="Add"
+                    Width="50"
+                    Command="{Binding AddAttributeCommand}"
+                    CommandParameter="{Binding AttributeName}"/>
+        </StackPanel>
+    </Grid>
+</Window>
