@@ -81,6 +81,7 @@
     <Compile Include="Commands\AddEntityCommand.cs" />
     <Compile Include="Commands\ExitCommand.cs" />
     <Compile Include="Commands\OpenDialogCommand.cs" />
+    <Compile Include="Converters\AttributeConverter.cs" />
     <Compile Include="Helpers\SQLiteHelper.cs" />
     <Compile Include="Models\EntityAttribute.cs" />
     <Compile Include="Models\Entity.cs" />
@@ -123,9 +124,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Converters\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="Views\AttributeDialog.xaml">
       <SubType>Designer</SubType>

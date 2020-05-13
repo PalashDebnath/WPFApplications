@@ -26,11 +26,8 @@ namespace DynamicApplication.Commands
 
         public bool CanExecute(object parameter)
         {
-            string value = (string)parameter;
-
-            if (string.IsNullOrWhiteSpace(value))
-                return false;
-            return true;
+            bool value = (bool)parameter;
+            return value;
         }
 
         public void Execute(object parameter)
