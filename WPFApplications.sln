@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApplication", "Weath
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicApplication", "DynamicApplication\DynamicApplication.csproj", "{5E73D99B-93FD-4C34-942E-2F7601332C4E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement", "StockManagement\StockManagement.csproj", "{C2E7FD40-C16D-447D-9866-4C2A2598E8EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5E73D99B-93FD-4C34-942E-2F7601332C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E73D99B-93FD-4C34-942E-2F7601332C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E73D99B-93FD-4C34-942E-2F7601332C4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2E7FD40-C16D-447D-9866-4C2A2598E8EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2E7FD40-C16D-447D-9866-4C2A2598E8EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2E7FD40-C16D-447D-9866-4C2A2598E8EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2E7FD40-C16D-447D-9866-4C2A2598E8EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
